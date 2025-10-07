@@ -1,0 +1,71 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Анна Петрова",
+      "email": "anna.petrova@example.com",
+      "age": 28,
+      "is_active": true,
+      "roles": ["admin", "moderator"],
+      "address": {
+        "street": "ул. Ленина, 15",
+        "city": "Москва",
+        "zipcode": "101000"
+      },
+      "registration_date": "2023-01-15"
+    },
+    {
+      "id": 2,
+      "name": "Иван Сидоров",
+      "email": "ivan.sidorov@example.com",
+      "age": 35,
+      "is_active": false,
+      "roles": ["user"],
+      "address": {
+        "street": "пр. Мира, 42",
+        "city": "Санкт-Петербург",
+        "zipcode": "190000"
+      },
+      "registration_date": "2022-11-03"
+    }
+  ],
+  "products": [
+    {
+      "id": "P001",
+      "name": "Ноутбук игровой",
+      "category": "электроника",
+      "price": 89999.99,
+      "in_stock": true,
+      "specifications": {
+        "processor": "Intel Core i7",
+        "ram_gb": 16,
+        "storage_gb": 512
+      },
+      "tags": ["игры", "работа", "портативный"]
+    },
+    {
+      "id": "P002",
+      "name": "Смартфон",
+      "category": "электроника",
+      "price": 45999.50,
+      "in_stock": false,
+      "specifications": {
+        "screen_size": 6.1,
+        "battery_mah": 4000,
+        "camera_mp": 48
+      },
+      "tags": ["связь", "фотография", "android"]
+    }
+  ],
+  "metadata": {
+    "version": "1.0",
+    "created": "2024-01-20T10:30:00Z",
+    "total_users": 2,
+    "total_products": 2,
+    "settings": {
+      "pagination_enabled": true,
+      "items_per_page": 10,
+      "api_version": "v2"
+    }
+  }
+}
