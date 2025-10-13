@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "autotests-api"
+version = "0.1.0"
+description = ""
+authors = ["Olya Radkovich <olga.radkovich@innowise.com>"]
+license = "MIT"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.13"
+grpcio = "^1.75.1"
+grpcio-tools = "^1.75.1"
+websockets = "^15.0.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
