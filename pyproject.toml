@@ -11,6 +11,7 @@ python = "^3.13"
 grpcio = "^1.75.1"
 grpcio-tools = "^1.75.1"
 websockets = "^15.0.1"
+httpx = "^0.28.1"
 
 [build-system]
 requires = ["poetry-core"]
