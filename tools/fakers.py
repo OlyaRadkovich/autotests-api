@@ -2,7 +2,7 @@ import time
 import random
 
 def get_random_email() -> str:
-    return f"test{int(time.time())}@example.com"
+    return f"test.{time.time()}@example.com"
 
 def get_random_password() -> str:
     random_pass = ""
