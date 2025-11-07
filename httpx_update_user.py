@@ -1,12 +1,12 @@
 import httpx
-from tools.fakers import get_random_email, get_random_password
+from tools.fakers import fake_ru
 
 create_user_payload = {
-    "email": get_random_email(),
-    "password": get_random_password(),
-    "lastName": "string",
-    "firstName": "string",
-    "middleName": "string"
+    "email": fake_ru.email(),
+    "password": fake_ru.password(),
+    "lastName": fake_ru.last_name(),
+    "firstName": fake_ru.first_name(),
+    "middleName": fake_ru.middle_name()
 }
 
 create_user_response = httpx.post("http://127.0.0.1:8000/api/v1/users", json=create_user_payload)
@@ -27,8 +27,8 @@ update_user_header = {
 user_id = create_user_response_data["user"]["id"]
 
 update_user_payload = {
-    "email": get_random_email(),
-    "password": get_random_password(),
+    "email": fake_ru.email(),
+    "password": fake_ru.password(),
     "lastName": "Basquiat",
     "firstName": "Jean",
     "middleName": "Michel"
