@@ -32,10 +32,6 @@ class TestUserAuthentication:
     def test_login(self):
         ...
 
-    @pytest.mark.slow
-    def test_password_reset(self):
-        ...
-
     def test_logout(self):
         ...
 
