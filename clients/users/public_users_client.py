@@ -8,15 +8,15 @@ from clients.users.users_schema import CreateUserRequestSchema, CreateUserRespon
 
 class PublicUsersClient(APIClient):
     """
-    Клиент для работы с /api/v1/users
+    Client for interacting with /api/v1/users
     """
 
     def create_user_api(self, request: CreateUserRequestSchema) -> Response:
         """
-        Метод создает пользователя.
+        Method for creating a user.
 
-        :param request: Словарь с email, password, lastName, firstName и middleName.
-        :return: Ответ от сервера в виде объекта httpx.Response
+        :param request: Dictionary with email, password, lastName, firstName and middleName.
+        :return: Server response as an httpx.Response object
         """
         return self.post(
             "/api/v1/users",
@@ -30,8 +30,8 @@ class PublicUsersClient(APIClient):
 
 def get_public_users_client() -> PublicUsersClient:
     """
-    Функция создаёт экземпляр PublicUsersClient с уже настроенным HTTP-клиентом.
+    This function creates an instance of PublicUsersClient with a pre-configured HTTP client.
 
-    :return: Готовый к использованию PublicUsersClient.
+    :return: A ready-to-use PublicUsersClient instance.
     """
     return PublicUsersClient(client=get_public_http_client())

@@ -5,7 +5,7 @@ from tools.fakers import fake
 
 class FileSchema(BaseModel):
     """
-    Описание структуры файла.
+    Description of the file structure.
     """
     id: str
     filename: str
@@ -15,7 +15,7 @@ class FileSchema(BaseModel):
 
 class CreateFileRequestSchema(BaseModel):
     """
-    Описание структуры запроса на создание файла.
+    Description of the file creation request structure.
     """
     filename: str = Field(default_factory=lambda: f"{fake.uuid4()}.png")
     directory: str = Field(default="tests")
@@ -24,13 +24,13 @@ class CreateFileRequestSchema(BaseModel):
 
 class CreateFileResponseSchema(BaseModel):
     """
-    Описание структуры ответа создания файла.
+    Description of the file creation response structure.
     """
     file: FileSchema
 
 
 class GetFileResponseSchema(BaseModel):
     """
-    Описание структуры ответа получения файла.
+    Description of the file retrieval response structure.
     """
     file: FileSchema

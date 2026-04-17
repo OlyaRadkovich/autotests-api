@@ -6,15 +6,15 @@ from clients.public_http_builder import get_public_http_client
 
 class AuthenticationClient(APIClient):
     """
-    Клиент для работы с /api/v1/authentication
+    Client for interacting with /api/v1/authentication
     """
 
     def login_api(self, request: LoginRequestSchema) -> Response:
         """
-        Метод выполняет аутентификацию пользователя.
+        Method performs user authentication.
 
-        :param request: Словарь с email и password.
-        :return: Ответ от сервера в виде объекта httpx.Response
+        :param request: Dictionary with email and password.
+        :return: Server response as an httpx.Response object
         """
         return self.post(
             "/api/v1/authentication/login",
@@ -23,10 +23,10 @@ class AuthenticationClient(APIClient):
 
     def refresh_api(self, request: RefreshRequestSchema) -> Response:
         """
-        Метод обновляет токен авторизации.
+        Method refreshes the authorization token.
 
-        :param request: Словарь с refreshToken.
-        :return: Ответ от сервера в виде объекта httpx.Response
+        :param request: Dictionary with refreshToken.
+        :return: Server response as an httpx.Response object
         """
         return self.post(
             "/api/v1/authentication/refresh",
@@ -39,8 +39,8 @@ class AuthenticationClient(APIClient):
 
 def get_authentication_client() -> AuthenticationClient:
     """
-    Функция создаёт экземпляр AuthenticationClient с уже настроенным HTTP-клиентом.
+    This function creates an instance of AuthenticationClient with a pre-configured HTTP client.
 
-    :return: Готовый к использованию AuthenticationClient.
+    :return: A ready-to-use AuthenticationClient instance.
     """
     return AuthenticationClient(client=get_public_http_client())

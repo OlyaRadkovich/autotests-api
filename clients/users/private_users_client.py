@@ -6,33 +6,33 @@ from clients.users.users_schema import UpdateUserRequestSchema, GetUserResponseS
 
 class PrivateUsersClient(APIClient):
     """
-    Клиент для работы с /api/v1/users
+    Client for interacting with /api/v1/users
     """
 
     def get_user_me_api(self) -> Response:
         """
-        Метод получения текущего пользователя.
+        Method for getting the current user.
 
-        :return: Ответ от сервера в виде объекта httpx.Response
+        :return: Server response as an httpx.Response object
         """
         return self.get("/api/v1/users/me")
 
     def get_user_api(self, user_id: str) -> Response:
         """
-        Метод получения пользователя по идентификатору.
+        Method for getting a user by ID.
 
-        :param user_id: Идентификатор пользователя.
-        :return: Ответ от сервера в виде объекта httpx.Response
+        :param user_id: User ID.
+        :return: Server response as an httpx.Response object
         """
         return self.get(f"/api/v1/users/{user_id}")
 
     def update_user_api(self, user_id: str, request: UpdateUserRequestSchema) -> Response:
         """
-        Метод обновления пользователя по идентификатору.
+        Method for updating a user by ID.
 
-        :param user_id: Идентификатор пользователя.
-        :param request: Словарь с email, lastName, firstName, middleName.
-        :return: Ответ от сервера в виде объекта httpx.Response
+        :param user_id: User ID.
+        :param request: Dictionary with email, lastName, firstName, middleName.
+        :return: Server response as an httpx.Response object
         """
         return self.patch(
             f"/api/v1/users/{user_id}",
@@ -40,10 +40,10 @@ class PrivateUsersClient(APIClient):
 
     def delete_user_api(self, user_id: str) -> Response:
         """
-        Метод удаления пользователя по идентификатору.
+        Method for deleting a user by ID.
 
-        :param user_id: Идентификатор пользователя.
-        :return: Ответ от сервера в виде объекта httpx.Response
+        :param user_id: User ID.
+        :return: Server response as an httpx.Response object
         """
         return self.delete(f"/api/v1/users/{user_id}")
 
@@ -54,8 +54,8 @@ class PrivateUsersClient(APIClient):
 
 def get_private_users_client(user: AuthenticationUserSchema) -> PrivateUsersClient:
     """
-    Функция создаёт экземпляр PrivateUsersClient с уже настроенным HTTP-клиентом.
+    This function creates an instance of PrivateUsersClient with a pre-configured HTTP client.
 
-    :return: Готовый к использованию PrivateUsersClient.
+    :return: A ready-to-use PrivateUsersClient instance.
     """
     return PrivateUsersClient(client=get_private_http_client(user))

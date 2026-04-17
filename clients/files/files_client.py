@@ -6,24 +6,24 @@ from clients.private_http_builder import AuthenticationUserSchema, get_private_h
 
 class FilesClient(APIClient):
     """
-    Клиент для работы с /api/v1/files
+    Client for working with /api/v1/files
     """
 
     def get_file_api(self, file_id: str) -> Response:
         """
-        Метод получения файла.
+        Method for getting a file.
 
-        :param file_id: Идентификатор файла.
-        :return: Ответ от сервера в виде объекта httpx.Response
+        :param file_id: File identifier.
+        :return: Server response as an httpx.Response object
         """
         return self.get(f"/api/v1/files/{file_id}")
 
     def create_file_api(self, request: CreateFileRequestSchema) -> Response:
         """
-        Метод создания файла.
+        Method for creating a file.
 
-        :param request: Словарь с filename, directory, upload_file.
-        :return: Ответ от сервера в виде объекта httpx.Response
+        :param request: Dictionary with filename, directory, upload_file.
+        :return: Server response as an httpx.Response object
         """
         return self.post(
             "/api/v1/files",
@@ -33,10 +33,10 @@ class FilesClient(APIClient):
 
     def delete_file_api(self, file_id: str) -> Response:
         """
-        Метод удаления файла.
+        Method for deleting a file.
 
-        :param file_id: Идентификатор файла.
-        :return: Ответ от сервера в виде объекта httpx.Response
+        :param file_id: File identifier.
+        :return: Server response as an httpx.Response object
         """
         return self.delete(f"/api/v1/files/{file_id}")
 
@@ -47,8 +47,8 @@ class FilesClient(APIClient):
 
 def get_files_client(user: AuthenticationUserSchema) -> FilesClient:
     """
-    Функция создаёт экземпляр FilesClient с уже настроенным HTTP-клиентом.
+    The function creates an instance of FilesClient with an already configured HTTP client.
 
-    :return: Готовый к использованию FilesClient.
+    :return: Ready-to-use FilesClient.
     """
     return FilesClient(client=get_private_http_client(user))

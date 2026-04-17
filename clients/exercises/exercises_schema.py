@@ -4,7 +4,7 @@ from tools.fakers import fake
 
 class ExerciseSchema(BaseModel):
     """
-    Описание структуры упражнения.
+    Description of the exercise structure.
     """
     model_config = ConfigDict(populate_by_name=True)
 
@@ -20,28 +20,28 @@ class ExerciseSchema(BaseModel):
 
 class GetExerciseResponseSchema(BaseModel):
     """
-    Описание структуры ответа на получение упражнения.
+    Description of the response structure for getting an exercise.
     """
     exercise: ExerciseSchema
 
 
 class GetExercisesQuerySchema(BaseModel):
     """
-    Описание структуры запроса на получение списка упражнений.
+    Description of the request structure for getting a list of exercises.
     """
     course_id: str = Field(alias="courseId")
 
 
 class GetExercisesResponseSchema(BaseModel):
     """
-    Описание структуры ответа на получение списка упражнений.
+    Description of the response structure for getting a list of exercises.
     """
     exercises: list[ExerciseSchema]
 
 
 class CreateExerciseRequestSchema(BaseModel):
     """
-    Описание структуры запроса на создание упражнения.
+    Description of the request structure for creating an exercise.
     """
     model_config = ConfigDict(populate_by_name=True)
 
@@ -56,14 +56,14 @@ class CreateExerciseRequestSchema(BaseModel):
 
 class CreateExerciseResponseSchema(BaseModel):
     """
-    Описание структуры ответа на создание упражнения.
+    Description of the response structure for creating an exercise.
     """
     exercise: ExerciseSchema
 
 
 class UpdateExerciseRequestSchema(BaseModel):
     """
-    Описание структуры запроса на обновление упражнения.
+    Description of the request structure for updating an exercise.
     """
     title: str | None = Field(default_factory=fake.sentence)
     max_score: int | None = Field(alias="maxScore", default_factory=fake.max_score)
@@ -75,6 +75,6 @@ class UpdateExerciseRequestSchema(BaseModel):
 
 class UpdateExerciseResponseSchema(BaseModel):
     """
-    Описание структуры ответа на обновление упражнения.
+    Description of the response structure for updating an exercise.
     """
     exercise: ExerciseSchema
